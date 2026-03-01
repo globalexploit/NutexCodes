@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutex Code | Innovation & Intelligence</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary: #00d4ff;     /* Cyan */
+            --secondary: #0056b3;   /* Deep Blue */
+            --accent: #ff0055;      /* Accent Red/Pink */
+            --dark: #0f172a;        /* Dark Background */
+            --light: #f8fafc;       /* Text Color */
+            --card-bg: #1e293b;     /* Card Background */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: rgba(15, 23, 42, 0.95);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #94a3b8;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            /* Simple dark gradient background */
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            color: #cbd5e1;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background: var(--primary);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: var(--light);
+            transform: translateY(-3px);
+        }
+
+        /* --- About Section --- */
+        .section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--light);
+        }
+
+        .section-title .line {
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 10px auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            border-top: 3px solid var(--secondary);
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--primary);
+        }
+
+        .info-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .leadership {
+            margin-top: 4rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .leadership h3 {
+            color: var(--light);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .team-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: center;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member h4 {
+            color: var(--light);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .team-member span {
+            color: var(--primary);
+            font-size: 0.95rem;
+            font-weight: bold;
+        }
+
+        .ai-section {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-top: 1px solid #334155;
+            border-bottom: 1px solid #334155;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .ai-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .ai-badge {
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .ai-visual {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            font-size: 8rem;
+            color: var(--primary);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* --- Jobs Section --- */
+        .job-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid var(--accent);
+        }
+
+        .job-title h3 {
+            font-size: 1.2rem;
+        }
+
+        .job-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .job-btn:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #020617;
+            padding: 3rem 10%;
+            text-align: center;
+            border-top: 1px solid #334155;
+        }
+
+        .footer-links {
+            margin: 1.5rem 0;
+        }
+
+        .footer-links a {
+            color: var(--light);
+            font-size: 2rem;
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .contact-number {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: bold;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        
+        /* YouTube Button specifically red */
+        .fa-youtube {
+            color: #FF0000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav { display: none; } /* Simplified for mobile */
+            .hero h1 { font-size: 2.5rem; }
+            .job-card { flex-direction: column; text-align: left; align-items: flex-start; gap: 1rem; }
+            .team-list { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Nutex<span>Codes</span></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#intellexa">Intellexa AI</a></li>
+                <li><a href="#jobs">Jobs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div>
+            <h1>We Build The Future<br><span>With Code & AI</span></h1>
+            <p>Welcome to Nutex Codes. Founded by Afolabi Barnabas & Oyeleke Dan.</p>
+            <a href="#intellexa" class="btn">Discover Intellexa AI</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="section-title">
+            <h2>About Nutex Code</h2>
+            <div class="line"></div>
+        </div>
+        
+        <div class="about-grid">
+            <div class="info-card">
+                <i class="fas fa-bullseye fa-2x" style="color:var(--primary); margin-bottom:10px;"></i>
+                <h3>Our Mission</h3>
+                <p>To revolutionize the digital landscape by providing accessible, high-performance software solutions that empower businesses to scale efficiently.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-eye fa-2x" style="color:var(--primary); margin-bottom:10px;"></i>
+                <h3>Our Vision</h3>
+                <p>To be the leading tech hub in Africa and beyond, recognized for innovation, integrity, and the transformative power of our code.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-trophy fa-2x" style="color:var(--primary); margin-bottom:10px;"></i>
+                <h3>Our Goal</h3>
+                <p>To bridge the gap between human potential and artificial intelligence, ensuring that technology serves humanity effectively.</p>
+            </div>
+        </div>
+
+        <div class="leadership">
+            <h3>Meet Our Leadership</h3>
+            
+            <div class="team-list">
+                <div class="team-member">
+                    <h4>Afolabi Barnabas</h4>
+                    <span>Founder and leader</span>
+                </div>
+                <div class="team-member">
+                    <h4>Oyeleke Dan</h4>
+                    <span>Founder and leader</span>
+                </div>
+                
+                <div class="team-member">
+                    <h4>Folorunsho Samuel</h4>
+                    <span>Administrator 1</span>
+                </div>
+                <div class="team-member">
+                    <h4>Ilesanmi Ayomikun</h4>
+                    <span>Administrator 2</span>
+
+                     <div class="team-member">
+                    <h4> Akinpelu dara</h4>
+                    <span> Member</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="intellexa" class="section ai-section">
+        <div class="ai-content">
+            <span class="ai-badge">New Product</span>
+            <h2 style="font-size: 3rem; margin-bottom: 1rem;">Intellexa AI</h2>
+            <p style="font-size: 1.2rem; color: #cbd5e1; margin-bottom: 2rem;">
+                Experience the next generation of intelligence. Intellexa AI automates your workflow, predicts market trends, and enhances decision-making with unmatched speed.
+            </p>
+            <ul style="list-style: none; margin-bottom: 2rem;">
+                <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary);"></i> Advanced Machine Learning</li>
+                <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary);"></i> Real-time Data Analytics</li>
+                <li><i class="fas fa-check-circle" style="color: var(--primary);"></i> 24/7 Smart Assistant</li>
+            </ul>
+            <a href="#contact" class="btn">Request a Demo</a>
+        </div>
+        <div class="ai-visual">
+            <i class="fas fa-brain"></i>
+        </div>
+    </section>
+
+    <section id="jobs" class="section">
+        <div class="section-title">
+            <h2>Career Opportunities</h2>
+            <div class="line"></div>
+            <p>Join the team building the next generation of tech.</p>
+        </div>
+        
+        <div class="job-container">
+            <div class="job-card">
+                <div class="job-title">
+                    <h3>Web Developer</h3>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">Full Time • Remote</p>
+                </div>
+                <button class="job-btn" onclick="applyJob('Web Developer')">Apply Now</button>
+            </div>
+            
+            <div class="job-card">
+                <div class="job-title">
+                    <h3>Cyber Security</h3>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">Contract • On-site</p>
+                </div>
+                <button class="job-btn" onclick="applyJob('Cyber Security')">Apply Now</button>
+            </div>
+
+            <div class="job-card">
+                <div class="job-title">
+                    <h3>Ethical Hacker</h3>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">Part Time • Remote</p>
+                </div>
+                <button class="job-btn" onclick="applyJob('Social Media Manager')">Apply Now</button>
+            </div>
+
+            <div class="job-card">
+                <div class="job-title">
+                    <h3>Ai architect(Intellexa Team)</h3>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">Full Time • Remote</p>
+                </div>
+                <button class="job-btn" onclick="applyJob('Ai Architect')">Apply Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background: var(--card-bg); padding: 4rem 10%; text-align: center;">
+        <h2 style="margin-bottom: 1rem;">Get In Touch</h2>
+        <p style="margin-bottom: 2rem;">Ready to start your project or join our team? Call us today.</p>
+        
+        <a href="tel:08039532529" class="contact-number">
+            <i class="fas fa-phone"></i> 08039532529
+        </a>
+
+        <div style="margin-top: 2rem;">
+            <p style="margin-bottom: 10px; color: #94a3b8;">Visit our Channel:</p>
+            <a href="https://www.youtube.com/" target="_blank" style="font-size: 3rem; text-decoration: none;">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Nutex Code. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">Designed by Nutex Code Team</p>
+    </footer>
+
+    <script>
+        // Smooth Scroll Effect
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Job Application Logic (Redirects to WhatsApp)
+        function applyJob(role) {
+            const phone = "2348039532529";
+            // Pre-filled message for WhatsApp
+            const message = `Hello Nutex Code, I am interested in the ${role} position advertised on your website.`;
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // Scroll Animation Observer (Fade in effect)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Add animation styles dynamically to elements
+        const hiddenElements = document.querySelectorAll('.info-card, .job-card, .ai-content, .leadership');
+        hiddenElements.forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
